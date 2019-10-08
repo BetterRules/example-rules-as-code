@@ -1,0 +1,29 @@
+beards:
+  - length_in_mm: 3
+    outcome: false
+  - length_in_mm: 2
+    on_or_below_chin: false
+    uninterrupted_below_nose: true
+    outcome: false
+  - length_in_mm: 4
+    on_or_below_chin: true
+    uninterrupted_below_nose: true
+    outcome: false
+  - length_in_mm: 5
+    on_or_below_chin: true
+    uninterrupted_below_nose: false
+    outcome: true
+  - length_in_mm: 10
+    uninterrupted_below_nose: true
+    outcome: true
+  - length_in_mm: 20
+    on_or_below_chin: true
+    outcome: true
+  - length_in_mm: 6
+    on_or_below_chin: false
+    uninterrupted_below_nose: true
+    outcome: true
+  - length_in_mm: 200
+    on_or_below_chin: false
+    uninterrupted_below_nose: false
+    outcome: false
