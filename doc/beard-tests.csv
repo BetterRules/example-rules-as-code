@@ -1,0 +1,17 @@
+,Do they have facial hair longer than 5mm?,Does facial hair occur on or below your chin?,Does facial hair exist uninterrupted below the nose from ear to ear?,Outcome (Beard or not)
+1,No,-,-,No
+2,Yes,Yes,-,Yes
+3,Yes,Yes,-,Yes
+4,Yes,No,Yes,Yes
+5,Maybe,-,-,Maybe
+6,No,-,-,No
+7,Yes,Yes,-,Yes
+8,Yes,Yes,-,Yes
+9,Yes,Yes,-,Yes
+10,Yes,No,No,No
+11,Yes,No,No,No
+12,Yes,No,No,No
+13,Yes,No,No,No
+14,Yes,No,No,No
+15,No,-,-,No
+16,No,No,No,No
