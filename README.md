@@ -19,5 +19,6 @@ Please add implementations of the decision trees and tests in other languages an
 
 - Add a new folder in the root directory.
 - Create a README.md with details about how to run the code.
+- Make a pull request!
 
-There are example tests in doc/beard-tests.csv that you may like to adapt to your chosen language or framework.
+You can use the examples included in the `shared` directory to write tests and make sure your code passes.
