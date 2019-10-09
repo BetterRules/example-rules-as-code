@@ -12,7 +12,8 @@ Implementations are for the following decision tree:
 ![Do you have a beard decision tree](doc/do-you-have-a-beard.png)
 
 The legislation reads:
-```
+
+```legislation
 In this Act, beard means any facial hair no shorter than 5 millimetres in
 length that:
 a. occurs on or below the chin, or
