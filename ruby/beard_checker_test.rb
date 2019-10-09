@@ -12,11 +12,11 @@ class TestBeardChecker < Minitest::Test
 
   def test_beards
     @beards.each do |beard|
-      checker = BeardChecker.new(length_in_mm: beard["length_in_mm"],
+      checker = BeardChecker.is_beard?(length_in_mm: beard["length_in_mm"],
                        on_or_below_chin: beard["on_or_below_chin"],
                        unbroken_between_ears: beard["uninterrupted_below_nose"])
 
-      assert_equal checker.is_beard?, beard["outcome"]
+      assert_equal checker, beard["outcome"]
     end
   end
 end
