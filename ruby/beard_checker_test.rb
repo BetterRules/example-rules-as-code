@@ -2,6 +2,7 @@
 
 require 'minitest/autorun'
 require 'yaml'
+require './beard_checker'
 
 class TestBeardChecker < Minitest::Test
   def setup
@@ -11,7 +12,6 @@ class TestBeardChecker < Minitest::Test
 
   def test_beards
     @beards.each do |beard|
-      # {"longer_than_5mm"=>true, "on_or_below_chin"=>false, "uninterrupted_below_nose"=>false, "outcome"=>false}
       checker = BeardChecker.new(length_in_mm: beard["length_in_mm"],
                        on_or_below_chin: beard["on_or_below_chin"],
                        unbroken_between_ears: beard["uninterrupted_below_nose"])
