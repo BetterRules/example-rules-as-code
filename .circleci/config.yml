@@ -9,10 +9,11 @@ jobs:
       - run: gem install bundler
       - run:
           name: Install dependencies
-          command: cd ruby; bundle check --path vendor/bundle || bundle install --deployment
+          command: cd ruby; bundle install
       - run:
           name: Ruby Tests
-          command: cd ruby; bundle exec ruby ./test/beard_checker_test.rb
+          command: >
+            cd ruby; bundle exec ruby ./test/beard_checker_test.rb
   markdownlint:
     docker:
       - image: circleci/ruby:2.6.3-node
@@ -29,7 +30,7 @@ jobs:
       - checkout
       - run:
           name: Install yamllint
-          command: sudo pip install --upgrade yamllint
+          command: pip install --upgrade yamllint
       - run:
           name: Yaml linter
           command: yamllint .
