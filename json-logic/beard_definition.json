@@ -1,0 +1,10 @@
+{
+  "and" : [
+    {">" : [ { "var" : "facial_hair_length_mm" }, 5 ]},
+    { "or": [
+        {"==" : [ { "var" : "on_or_below_chin" }, "true" ] },
+        {"==" : [ { "var" : "uninterrupted_below_nose" }, "true" ] }
+      ]
+    }
+  ]
+}
