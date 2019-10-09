@@ -2,7 +2,7 @@
 
 
 - bundle install
-- bundle exec beard_checker_test.rb
+- bundle exec test/beard_checker_test.rb
 
 This is structured as a service object.
 

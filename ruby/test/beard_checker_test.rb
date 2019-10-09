@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'yaml'
-require './beard_checker'
+require './beard_checker.rb'
 
 class TestBeardChecker < Minitest::Test
   def setup
