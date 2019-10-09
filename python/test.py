@@ -38,8 +38,8 @@ if __name__ == "__main__":
                     assert result == expected
                 except AssertionError as e:
                     # got a different result, print it
-                    print "Test {test_num}. Expected {expected}, got {result}.".format(
-                        test_num=test_num, result=result, expected=expected)
+                    print("Test {test_num}. Expected {expected}, got {result}.".format(
+                        test_num=test_num, result=result, expected=expected))
                     failures += 1
                 else:
                     passes += 1
