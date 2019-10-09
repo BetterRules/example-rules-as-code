@@ -2,6 +2,8 @@
 
 This repo is for implementations of the made-up [Australian Beard Tax (Promotion of Enlightenment Values) Act 1934](legislation.pdf).
 
+Its purpose is to show the breadth of options in writing legislation as code, explore some of the pros and cons of different options, and to give you a starting point for encoding real legislation. 
+
 Implementations are for the following decision tree:
 
 ![Do you have a beard decision tree](doc/do-you-have-a-beard.png)
