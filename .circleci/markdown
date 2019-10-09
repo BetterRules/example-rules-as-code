@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euv
+
+FILES=$(find . -name '*.md' | grep -v node_modules)
+for file in $FILES
+do
+  echo "============== checking $file"
+  npx markdownlint-cli "$file"
+done
