@@ -30,7 +30,7 @@ jobs:
       - checkout
       - run:
           name: Install yamllint
-          command: pip install --upgrade yamllint
+          command: sudo pip install --upgrade yamllint
       - run:
           name: Yaml linter
           command: yamllint .
