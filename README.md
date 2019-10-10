@@ -32,3 +32,15 @@ and formats.
 
 You can use the examples included in the `shared` directory to write tests and
 make sure your code passes.
+
+### CI
+
+A YAML and [Markdown linter](https://github.com/DavidAnson/markdownlint) are run
+on Circle CI. You can run the markdown linter locally with:
+
+```sh
+  ./.circleci/markdown
+```
+
+You may also like to add a job to run your tests on Circle CI by
+adding it to `.circleci/config.yml`.

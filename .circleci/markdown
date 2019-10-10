@@ -2,9 +2,11 @@
 
 set -euv
 
+sudo npm install -g markdownlint-cli
+
 FILES=$(find . -name '*.md' | grep -v node_modules)
 for file in $FILES
 do
   echo "============== checking $file"
-  npx markdownlint-cli "$file"
+  markdownlint "$file"
 done
