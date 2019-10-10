@@ -10,7 +10,7 @@ Go to the [Blawx Live Alpha version](https://www.blawx.com/demo), start the app.
 Choose "Menu", "Load Workspace" and upload the `beard.blawx` file.
 
 It should look like this:
-[](preview.png)
+![Preview of Blawx Code](./preview.png)
 
 In the block that begins "We Know Bob is an Object", change the values to test different scenarios.
 Choose "Menu", "Run Blawx Code" to get an answer with the new values.
