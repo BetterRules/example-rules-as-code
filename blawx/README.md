@@ -3,7 +3,7 @@
 Please note that the public alpha version of Blawx is unstable. It is very possible that this implementation will stop working when
 changes are made to the app. If that happens, let @Gauntlet173 on GitHub know.
 
-# Usage
+## Usage
 
 Download the `beard.blawx` file in this folder.
 Go to the [Blawx Live Alpha version](https://www.blawx.com/demo), start the app.
@@ -14,3 +14,8 @@ It should look like this:
 
 In the block that begins "We Know Bob is an Object", change the values to test different scenarios.
 Choose "Menu", "Run Blawx Code" to get an answer with the new values.
+
+## Advanced
+
+If you would like to use a version of the code with that deals with jurisdiction and exemptions, use the `beard_advanced.blawx` file
+instead.
