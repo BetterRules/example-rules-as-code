@@ -49,5 +49,6 @@ workflows:
   build_all:
     jobs:
       - ruby
+      - python
       - yamllint
       - markdownlint
