@@ -2,7 +2,7 @@
 
 This implements only the Beard Tax Rules.
 
-This should work in python 3. 
+This should work in python 3.
 
 You need to run the tests from within the `python` folder for them to run correctly.
 
