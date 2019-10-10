@@ -2,7 +2,7 @@
 
 set -euv
 
-npm install -g markdownlint-cli
+npm install markdownlint-cli
 
 FILES=$(find . -name '*.md' | grep -v node_modules)
 for file in $FILES
