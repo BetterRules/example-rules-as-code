@@ -1,0 +1,53 @@
+---
+version: 2
+jobs:
+  python:
+    docker:
+      - image: circleci/python:3.7.2
+    steps:
+      - checkout
+      - run:
+          name: Python Tests
+          command: >
+            cd python; ./test.py
+  ruby:
+    docker:
+      - image: circleci/ruby:2.6.3-node
+    steps:
+      - checkout
+      - run: gem install bundler
+      - run:
+          name: Install dependencies
+          command: cd ruby; bundle install
+      - run:
+          name: Ruby Tests
+          command: >
+            cd ruby; bundle exec ruby ./test/beard_checker_test.rb
+  markdownlint:
+    docker:
+      - image: circleci/ruby:2.6.3-node
+    steps:
+      - checkout
+      - run:
+          name: markdown lint
+          command: ./.circleci/markdown
+
+  yamllint:
+    docker:
+      - image: circleci/python:3.7.2
+    steps:
+      - checkout
+      - run:
+          name: Install yamllint
+          command: sudo pip install --upgrade yamllint
+      - run:
+          name: Yaml linter
+          command: yamllint .
+
+workflows:
+  version: 2
+  build_all:
+    jobs:
+      - ruby
+      - yamllint
+      - markdownlint
