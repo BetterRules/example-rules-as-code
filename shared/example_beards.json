@@ -1,0 +1,62 @@
+[
+  {
+    "facial_hair_over_5mm": "false",
+    "facial_hair_on_or_below_chin": "false",
+    "facial_hair_uninterrupted": "true",
+    "outcome": "false"
+  },
+  {
+    "facial_hair_over_5mm": "false",
+    "facial_hair_on_or_below_chin": "false",
+    "facial_hair_uninterrupted": "false",
+    "outcome": "false"
+  },
+  {
+    "facial_hair_over_5mm": "false",
+    "facial_hair_on_or_below_chin": "true",
+    "facial_hair_uninterrupted": "false",
+    "outcome": "false"
+  },
+  {
+    "facial_hair_over_5mm": "false",
+    "facial_hair_on_or_below_chin": "true",
+    "facial_hair_uninterrupted": "true",
+    "outcome": "false"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "false",
+    "facial_hair_uninterrupted": "true",
+    "outcome": "true"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "false",
+    "facial_hair_uninterrupted": "false",
+    "outcome": "false"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "true",
+    "facial_hair_uninterrupted": "false",
+    "outcome": "true"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "true",
+    "facial_hair_uninterrupted": "true",
+    "outcome": "true"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "true",
+    "facial_hair_uninterrupted": "-",
+    "outcome": "true"
+  },
+  {
+    "facial_hair_over_5mm": "true",
+    "facial_hair_on_or_below_chin": "-",
+    "facial_hair_uninterrupted": "true",
+    "outcome": "true"
+  }
+]
