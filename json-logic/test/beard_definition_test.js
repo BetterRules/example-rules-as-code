@@ -4,14 +4,10 @@ const beardRules = require("../beard_definition.json");
 
 const beardData = beardExamples.map(function(beard){
   let data = {}
-  if(beard.facial_hair_over_5mm === "true") {
-    data.facial_hair_length_mm = 6
-  } else {
-    data.facial_hair_length_mm = 2
-  }
 
   data.on_or_below_chin = beard.facial_hair_on_or_below_chin
   data.uninterrupted_below_nose = beard.facial_hair_uninterrupted
+  data.facial_hair_over_limit = beard.facial_hair_over_5mm
   data.outcome = beard.outcome
   return(data)
 })

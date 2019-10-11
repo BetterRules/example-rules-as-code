@@ -1,6 +1,6 @@
 {
   "and" : [
-    {">" : [ { "var" : "facial_hair_length_mm" }, 5 ]},
+    {"==" : [ { "var" : "facial_hair_over_limit" }, "true" ]},
     { "or": [
         {"==" : [ { "var" : "on_or_below_chin" }, "true" ] },
         {"==" : [ { "var" : "uninterrupted_below_nose" }, "true" ] }
