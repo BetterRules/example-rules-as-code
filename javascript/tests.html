@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Beard Checker</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+  <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+  <script src="../beard_checker.js"></script>
+  <script src="tests.js"></script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script>
+    QUnit.test( "Is the length more than or equal to 5mm?", function ( assert ) {
+      var length_in_mm = 3;
+      assert.equal( length_in_mm>=5, false, "Less than 5mm");
+      var length_in_mm = 5;
+      assert.equal( length_in_mm>=5, true, "Equal to 5mm");
+      var length_in_mm = 7;
+      assert.equal( length_in_mm>=5, true, "More than 5mm");
+    });
+
+    QUnit.test( "Is is on or below chin?", function ( assert ) {
+      var on_or_below_chin = false;
+      assert.equal( on_or_below_chin, false, "Doesn't occur on chin or below chin");
+      var on_or_below_chin = true;
+      assert.equal( on_or_below_chin, true, "On or below chin");
+    });
+
+    QUnit.test( "Is is unbroken between ears?", function ( assert ) {
+      var unbroken_between_ears = false;
+      assert.equal( unbroken_between_ears, false, "Broken between ears");
+      var unbroken_between_ears = true;
+      assert.equal( unbroken_between_ears, true, "Unbroken between ears");
+    });
+  </script>
+</body>
+</html>
