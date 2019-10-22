@@ -7,9 +7,12 @@ if __name__ == "__main__":
   if blawxfile.mode() == "r":
     blawx_code = blawxfile.read()
   
-  datafile = file.open('path/to/json')
+  datafile = file.open('../shared/example_beards.json')
   if datafile.mode() == "r":
     data = datafile.read()
+  
+  #may need to make changes to the json structure that gets sent
+  #Blawx is expecting a dictionary, not a list.
   
   payload = {'code': blawx_code, 'data': data}
   headers = {'Content-Type': 'application/x-www-form-urlencoded'}
