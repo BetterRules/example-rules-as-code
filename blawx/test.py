@@ -1,18 +1,23 @@
 #!/usr/bin/env python
 
 import requests
+import json
+
 
 if __name__ == "__main__":
   blawxfile = file.open('beard.blawx')
   if blawxfile.mode() == "r":
     blawx_code = blawxfile.read()
   
-  datafile = file.open('../shared/example_beards.json')
-  if datafile.mode() == "r":
-    data = datafile.read()
+  tests = json.load('../shared/example_beards.json')
   
-  #may need to make changes to the json structure that gets sent
-  #Blawx is expecting a dictionary, not a list.
+  dictionary_tests = {i: a[i+1] for i in range(0, len(a) #in PROGreSS
+  
+  dictionary_tests = {}
+  for t in tests:
+    dictionary_tests['test'] = t
+  
+  data = json.dumps(dictionary_tests)
   
   payload = {'code': blawx_code, 'data': data}
   headers = {'Content-Type': 'application/x-www-form-urlencoded'}
