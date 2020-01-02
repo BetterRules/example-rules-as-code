@@ -13,6 +13,7 @@ jobs:
       - run:
           name: AuthoritySpoke dependencies
           command: |
+            cd python-authorityspoke
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
@@ -20,6 +21,7 @@ jobs:
       - run:
           name: AuthoritySpoke Tests
           command: |
+            cd python-authorityspoke
             . venv/bin/activate
             pytest
   ruby:
