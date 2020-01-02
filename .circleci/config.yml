@@ -10,6 +10,13 @@ jobs:
           name: Python Tests
           command: >
             cd python; ./test.py
+      - run:
+          name: AuthoritySpoke Tests
+          command: |
+            cd python-authorityspoke
+            pip install -r requirements.txt
+            pip install pytest
+            pytest
   ruby:
     docker:
       - image: circleci/ruby:2.6.3-node
