@@ -11,11 +11,16 @@ jobs:
           command: >
             cd python; ./test.py
       - run:
-          name: AuthoritySpoke Tests
+          name: AuthoritySpoke dependencies
           command: |
-            cd python-authorityspoke
+            python3 -m venv venv
+            . venv/bin/activate
             pip install -r requirements.txt
             pip install pytest
+      - run:
+          name: AuthoritySpoke Tests
+          command: |
+            . venv/bin/activate
             pytest
   ruby:
     docker:
