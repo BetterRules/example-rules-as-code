@@ -15,7 +15,7 @@ def beard_act() -> Dict[str, Code]:
     return loaders.load_and_read_code("beard_tax_act.xml")
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def make_beard_rule(beard_act) -> List[Rule]:
     """Rules from the "Beard Tax Act" example statutes."""
     beard_dictionary = loaders.load_holdings("beard_rules.json")

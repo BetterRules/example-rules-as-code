@@ -1,4 +1,8 @@
-"""Tests from the statute_rules Jupyter Notebook."""
+"""
+Tests from the statute_rules Jupyter Notebook.
+
+Please check statute_rules.ipynb for explanations.
+"""
 
 import pytest
 
@@ -11,8 +15,8 @@ from authorityspoke.rules import Rule
 
 from authorityspoke.io import loaders, readers
 
-class TestStatuteRules:
 
+class TestStatuteRules:
     def test_greater_than_implies_equal(self, beard_act, make_beard_rule):
         beard_dictionary = loaders.load_holdings("beard_rules.json")
         beard_dictionary[0]["inputs"][1][
@@ -30,6 +34,20 @@ class TestStatuteRules:
         beard_dictionary[1]["mandatory"] = True
         long_hair_is_not_a_beard = readers.read_rule(beard_dictionary[1], beard_act)
         assert make_beard_rule[1].contradicts(long_hair_is_not_a_beard)
+
+    def test_long_thing_not_beard_contradicts_long_hair_is_beard(
+        self, beard_act, make_beard_rule
+    ):
+        beard_dictionary = loaders.load_holdings("beard_rules.json")
+        beard_dictionary[1]["despite"] = beard_dictionary[1]["inputs"][0]
+        beard_dictionary[1]["inputs"] = {
+            "type": "fact",
+            "content": "the length of the suspected beard was >= 12 inches",
+        }
+        beard_dictionary[1]["outputs"][0]["truth"] = False
+        beard_dictionary[1]["mandatory"] = True
+        long_thing_is_not_a_beard = readers.read_rule(beard_dictionary[1], beard_act)
+        assert long_thing_is_not_a_beard.contradicts(make_beard_rule[1])
 
     @pytest.mark.parametrize(
         (
@@ -90,9 +108,7 @@ class TestStatuteRules:
                 ],
                 outputs=Fact(Predicate("{} was a beard"), context_factors=beard),
             ),
-            enactments=Enactment(
-                source="/au/act/1934/47/1/4/", code=beard_act
-            ),
+            enactments=Enactment(source="/au/act/1934/47/1/4/", code=beard_act),
         )
         meets_chin_test = make_beard_rule[0].implies(hypothetical)
         meets_ear_test = make_beard_rule[1].implies(hypothetical)

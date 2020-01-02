@@ -11,7 +11,7 @@ jobs:
           command: >
             cd python; ./test.py
       - run:
-          name: AuthoritySpoke dependencies
+          name: AuthoritySpoke Tests
           command: |
             cd python-authorityspoke
             python3 -m venv venv
