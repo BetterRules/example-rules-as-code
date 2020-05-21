@@ -19,4 +19,4 @@ indicating whether the length is 5mm or more.
 The test data in the shared folder of the repository has been re-implemented in a data block
 inside the Blawx Workspace.
 
-For details, see the blog post at Blawx.com.
+For more details, see the [blog post at Blawx.com](https://www.blawx.com/2020/05/testing-your-rules-as-code/).
