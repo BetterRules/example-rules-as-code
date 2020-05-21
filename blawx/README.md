@@ -6,22 +6,17 @@ changes are made to the app. If that happens, let @Gauntlet173 on GitHub know.
 ## Usage
 
 Download the `beard.blawx` file in this folder.
-Go to the [Blawx Live Alpha version](https://www.blawx.com/demo), start the app.
+Go to the [Blawx Live Alpha version](https://www.blawx.com/alpha.html), start the app.
 Choose "Menu", "Load Workspace" and upload the `beard.blawx` file.
 
-It should look something like this:
-![Preview of Blawx Code](./preview.png)
+Then choose "Menu", and "Run Blawx Code" to run the query to determine if the tests passed.
 
-You can then use Blawx to add facts, and ask questions about the known facts given the rules.
+## Details
 
-The existing query is one that asks whether there were any tests, and if so whether those tests passed.
+The Blawx implementation uses actual lengths for the beard instead of a true/false variable
+indicating whether the length is 5mm or more.
 
-## Testing
+The test data in the shared folder of the repository has been re-implemented in a data block
+inside the Blawx Workspace.
 
-`test.py` sends the .json data in the shared folder to the Blawx.com reasoner, and runs the default query, displaying the result on
-one line.
-
-## Advanced
-
-If you would like to use a version of the code with that deals with jurisdiction and exemptions, use the `beard_advanced.blawx` file
-instead. It does not include the same testing rules.
+For details, see the blog post at Blawx.com.
