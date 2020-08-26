@@ -1,1 +1,2 @@
-AuthoritySpoke==0.3.4
+AuthoritySpoke==0.4.0
+legislice==0.1.1
