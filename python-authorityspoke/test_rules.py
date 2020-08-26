@@ -6,7 +6,8 @@ Please check statute_rules.ipynb for explanations.
 
 import pytest
 
-from authorityspoke.enactments import Enactment
+from legislice.mock_clients import MOCK_BEARD_ACT_CLIENT
+
 from authorityspoke.facts import Fact
 from authorityspoke.entities import Entity
 from authorityspoke.predicates import Predicate, Q_
@@ -15,28 +16,48 @@ from authorityspoke.rules import Rule
 
 from authorityspoke.io import loaders, readers
 
+client = MOCK_BEARD_ACT_CLIENT
+
 
 class TestStatuteRules:
-    def test_greater_than_implies_equal(self, beard_act, make_beard_rule):
+    """
+    Tests from the statute_rules Jupyter Notebook.
+    """
+
+    def test_greater_than_implies_equal(self, make_beard_rule):
         beard_dictionary = loaders.load_holdings("beard_rules.json")
         beard_dictionary[0]["inputs"][1][
             "content"
         ] = "the length of the suspected beard was = 8 millimetres"
-        longer_hair_rule = readers.read_rule(beard_dictionary[0], beard_act)
+        longer_hair_rule = readers.read_rule(beard_dictionary[0], client=client)
         assert make_beard_rule[0].implies(longer_hair_rule)
 
-    def test_greater_than_contradicts_not_greater(self, beard_act, make_beard_rule):
+    def test_greater_than_contradicts_not_greater(self, make_beard_rule):
         beard_dictionary = loaders.load_holdings("beard_rules.json")
         beard_dictionary[1]["inputs"][1][
             "content"
         ] = "the length of the suspected beard was >= 12 inches"
         beard_dictionary[1]["outputs"][0]["truth"] = False
         beard_dictionary[1]["mandatory"] = True
-        long_hair_is_not_a_beard = readers.read_rule(beard_dictionary[1], beard_act)
+        long_hair_is_not_a_beard = readers.read_rule(beard_dictionary[1], client=client)
         assert make_beard_rule[1].contradicts(long_hair_is_not_a_beard)
 
-    def test_long_thing_not_beard_contradicts_long_hair_is_beard(
-        self, beard_act, make_beard_rule
+    def test_contradictory_fact_about_beard_length(self, make_beard_rule):
+        beard_dictionary = loaders.load_holdings("beard_rules.json")
+        beard_dictionary[1]["despite"] = beard_dictionary[1]["inputs"][0]
+        beard_dictionary[1]["inputs"] = {
+            "type": "fact",
+            "content": "the length of the suspected beard was >= 12 inches",
+        }
+        beard_dictionary[1]["outputs"][0]["truth"] = False
+        beard_dictionary[1]["mandatory"] = True
+        long_thing_is_not_a_beard = readers.read_rule(
+            beard_dictionary[1], client=client
+        )
+        assert make_beard_rule[1].contradicts(long_thing_is_not_a_beard)
+
+    def test_contradictory_fact_about_beard_length_reverse(
+        self, make_beard_rule,
     ):
         beard_dictionary = loaders.load_holdings("beard_rules.json")
         beard_dictionary[1]["despite"] = beard_dictionary[1]["inputs"][0]
@@ -46,7 +67,9 @@ class TestStatuteRules:
         }
         beard_dictionary[1]["outputs"][0]["truth"] = False
         beard_dictionary[1]["mandatory"] = True
-        long_thing_is_not_a_beard = readers.read_rule(beard_dictionary[1], beard_act)
+        long_thing_is_not_a_beard = readers.read_rule(
+            beard_dictionary[1], client=client
+        )
         assert long_thing_is_not_a_beard.contradicts(make_beard_rule[1])
 
     @pytest.mark.parametrize(
@@ -73,9 +96,10 @@ class TestStatuteRules:
         facial_hair_uninterrupted,
         outcome,
         make_beard_rule,
-        beard_act,
     ):
         beard = Entity("a facial feature")
+
+        sec_4 = client.read(path="/test/acts/47/4/")
 
         hypothetical = Rule(
             procedure=Procedure(
@@ -108,8 +132,9 @@ class TestStatuteRules:
                 ],
                 outputs=Fact(Predicate("{} was a beard"), context_factors=beard),
             ),
-            enactments=Enactment(source="/au/act/1934/47/1/4/", code=beard_act),
+            enactments=sec_4,
         )
+
         meets_chin_test = make_beard_rule[0].implies(hypothetical)
         meets_ear_test = make_beard_rule[1].implies(hypothetical)
         assert outcome == meets_chin_test or meets_ear_test
