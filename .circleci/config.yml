@@ -10,6 +10,15 @@ jobs:
           name: Python Tests
           command: >
             cd python; ./test.py
+      - run:
+          name: AuthoritySpoke Tests
+          command: |
+            cd python-authorityspoke
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install authorityspoke
+            pip install pytest
+            pytest
   ruby:
     docker:
       - image: circleci/ruby:2.6.3-node
